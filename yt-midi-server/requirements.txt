@@ -2,4 +2,5 @@
 flask
 yt-dlp
 spleeter
+numpy==1.19.5
 basic-pitch
