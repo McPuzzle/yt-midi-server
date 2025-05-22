@@ -1,5 +1,5 @@
 flask==2.2.5
-yt-dlp==2024.5.4
+yt-dlp==2023.12.25
 spleeter==2.3.0
 basic-pitch==0.4.0
 numpy==1.24.3
