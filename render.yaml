@@ -2,8 +2,7 @@ services:
   - type: web
     name: yt-midi-server
     env: python
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: python app/main.py
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.11
+    buildCommand: pip install -r requirements.txt
+    startCommand: python yt-midi-server/app/main.py
+    plan: free
+    autoDeploy: true
