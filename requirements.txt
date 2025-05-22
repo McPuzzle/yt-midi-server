@@ -1,6 +1,5 @@
-flask==2.2.5
+flask==2.3.3
 yt-dlp==2023.10.13
 spleeter==2.4.2
 basic-pitch==0.4.0
 numpy>=1.24
-# typer removed due to conflict with spleeter
