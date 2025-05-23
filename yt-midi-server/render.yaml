@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: yt-midi-server
+    env: python
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      pip install --no-deps git+https://github.com/spotify/basic-pitch.git
+    startCommand: python yt-midi-server/app/main.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
