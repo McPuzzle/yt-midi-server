@@ -8,7 +8,7 @@ services:
   pip install -r yt-midi-server/requirements.txt
   pip install --no-deps git+https://github.com/spotify/basic-pitch.git
 
-startCommand: python app/main.py
+startCommand: python yt-midi-server/app/main.py
 
     envVars:
       - key: FLASK_ENV
