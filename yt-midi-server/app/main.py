@@ -43,4 +43,4 @@ def convert():
     return send_file(zip_path, as_attachment=True, download_name="midi-files.zip")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
