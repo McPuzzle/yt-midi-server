@@ -18,8 +18,10 @@ def convert():
     work_dir = f"/tmp/{session_id}"
     os.makedirs(work_dir, exist_ok=True)
 
-    wav_file = os.path.join(work_dir, "audio.wav")
-    subprocess.run(f"yt-dlp -x --audio-format wav -o '{wav_file}' '{url}'", shell=True)
+wav_file = os.path.join(work_dir, "audio.%(ext)s")
+subprocess.run(f"yt-dlp -x --audio-format wav -o '{wav_file}' '{url}'", shell=True)
+wav_file = wav_file.replace('%(ext)s', 'wav') 
+
 
     subprocess.run(f"spleeter separate -i '{wav_file}' -p spleeter:4stems -o '{work_dir}/stems'", shell=True)
 
