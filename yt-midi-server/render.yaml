@@ -2,7 +2,6 @@ services:
   - type: web
     name: yt-midi-server
     env: python
-    rootDir: yt-midi-server
 
     buildCommand: |
       pip install --upgrade pip
