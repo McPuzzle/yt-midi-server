@@ -1,5 +1,0 @@
-flask
-yt-dlp
-spleeter==2.1.0
-numpy==1.18.5
-basic-pitch
