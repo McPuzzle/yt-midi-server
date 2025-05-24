@@ -18,17 +18,14 @@ def convert():
     work_dir = f"/tmp/{session_id}"
     os.makedirs(work_dir, exist_ok=True)
 
-    # Handle YouTube URL
+    # Download or save WAV
+    wav_file = os.path.join(work_dir, "audio.wav")
     if url:
-        wav_file = os.path.join(work_dir, "audio.wav")
         subprocess.run(f"yt-dlp -x --audio-format wav -o '{wav_file}' '{url}'", shell=True)
-    
-    # Handle uploaded file
     elif file:
-        wav_file = os.path.join(work_dir, "audio.wav")
         file.save(wav_file)
 
-    # Separate stems with spleeter
+    # Separate stems with Spleeter
     subprocess.run(f"spleeter separate -i '{wav_file}' -p spleeter:4stems -o '{work_dir}/stems'", shell=True)
 
     # Convert stems to MIDI
@@ -39,7 +36,7 @@ def convert():
         midi_out = os.path.join(midi_dir, f"{stem}.mid")
         subprocess.run(f"basic-pitch '{stem_path}' --output-midi '{midi_out}'", shell=True)
 
-    # Zip the MIDI files
+    # Zip MIDI files
     zip_path = os.path.join(work_dir, "output.zip")
     with ZipFile(zip_path, 'w') as zipf:
         for root, _, files in os.walk(midi_dir):
