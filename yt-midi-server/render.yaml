@@ -6,7 +6,7 @@ services:
       pip install --upgrade pip
       pip install -r requirements.txt
       pip install --no-deps git+https://github.com/spotify/basic-pitch.git
-   startCommand: gunicorn main:app
+    startCommand: gunicorn main:app
     envVars:
       - key: FLASK_ENV
         value: production
